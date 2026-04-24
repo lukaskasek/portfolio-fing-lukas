@@ -1,0 +1,23 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+        <%@ page import="java.util.List" %>
+    
+<div class="col-md-2">
+            <nav id="sidebar" class="p-3">
+        <h5>Categorías</h5>
+        <ul class="nav flex-column">
+            <% 
+            List<String> categorias = (List<String>)request.getAttribute("categorias");
+            if(categorias != null) {
+                for(String categoria : categorias) {
+            %>
+                <li class="nav-item">
+                    <a class="nav-link" href="${pageContext.request.contextPath}/rutaDeVuelo?categoria=<%=categoria%>"><%=categoria%></a>
+                </li>
+            <% 
+                }
+            }
+            %>
+        </ul>
+    </nav>
+        </div>

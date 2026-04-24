@@ -1,0 +1,289 @@
+@charset "UTF-8";
+/* Archivo: styles.css */
+
+/* Estilo para el cuerpo */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f5f5f5;
+}
+
+/* Estilo de la barra de navegación */
+.navbar {
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Botones personalizados */
+.nav-link.btn {
+    margin-left: 15px;
+}
+
+/* Contenido principal */
+.container {
+    background-color: white;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+}
+
+/* Barra de búsqueda global */
+.container::before {
+    content: '';
+    display: block;
+}
+
+.global-search {
+    margin-bottom: 2rem;
+}
+
+.global-search .search-row {
+    display: flex;
+    margin-bottom: 1rem;
+}
+
+.global-search .search-input {
+    flex-grow: 1;
+    margin-right: 10px;
+}
+
+.global-search input {
+    width: 100%;
+    height: 35px;
+    border-radius: 4px;
+    border: 1px solid #ced4da;
+    padding-left: 15px;
+    font-size: 16px;
+}
+
+.global-search input:focus {
+    border-color: #80bdff;
+    box-shadow: 0 0 0 0.2rem rgba(0,123,255,.25);
+    outline: none;
+}
+
+.global-search button {
+    width: 150px;
+    height: 35px;
+}
+
+/* Espaciado para los títulos */
+h2 {
+    margin-bottom: 20px;
+}
+
+/* Estilos personalizados para los formularios */
+.form-group label {
+    font-weight: bold;
+}
+
+.btn-primary {
+    background-color: #007bff;
+    border: none;
+}
+
+.btn-primary:hover {
+    background-color: #0056b3;
+}
+
+
+/* Separar Volando.uy del menú de categorías */
+.navbar {
+    margin-bottom: 20px;
+}
+
+/* mas cosas de categorias*/
+#sidebar .nav-link {
+    color: #000; 
+}
+
+#sidebar .nav-link:hover {
+    color: #0056b3; 
+}
+
+#profile-image {
+    width: 40px;  
+    height: 40px;
+    margin-right: 10px; 
+}
+
+
+
+
+/* Estilos para la sección de detalles del vuelo */
+.details p {
+    margin-bottom: 0.5rem;
+    line-height: 1.5;
+}
+
+/* Estilos para las imágenes de rutas */
+.col-md-4 img {
+    border: 1px solid #ddd;
+    padding: 3px;
+}
+
+.col-md-4 a {
+    color: #007bff;
+    font-weight: 500;
+}
+
+.col-md-4 a:hover {
+    color: #0056b3;
+    text-decoration: underline !important;
+}
+        .search-section {
+            margin-bottom: 3rem;
+        }
+        
+        .routes-title {
+            margin-bottom: 2rem;
+        }
+        
+        .route-link {
+            color: inherit;
+            text-decoration: none;
+        }
+        
+        .route-link:hover {
+            color: #007bff;
+            text-decoration: none;
+        }
+
+        .route-info {
+            margin-left: 1rem;
+        }
+
+        .route-card {
+            margin-bottom: 2rem;
+        }
+
+/* Estilo para el contenedor de categorías */
+#sidebar {
+    background-color: white; 
+    border: 1px solid black; 
+    padding: 1px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+}
+
+/* Estilo para el título "Categorías" */
+#sidebar h5 {
+    font-size: 18px; 
+    font-weight: bold; 
+    margin-bottom: 10px; 
+    background-color: #f0f0f0; 
+    padding: 10px; 
+    text-align: center; 
+}
+
+/* Estilo para el contenedor de de Mi perfil */
+#gestion {
+    background-color: white; 
+    border: 1px solid black; 
+    padding: 1px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+}
+
+#gestion h5 {
+    font-size: 18px; 
+    font-weight: bold; 
+    margin-bottom: 10px; 
+    background-color: #f0f0f0; 
+    padding: 10px; 
+    text-align: center; 
+}
+
+#gestion .nav-link {
+    color: #000; 
+}
+
+#gestion .nav-link:hover {
+    color: #0056b3; 
+}
+
+.suggestions-container {
+    position: absolute;
+    width: 100%;
+    max-height: 200px;
+    overflow-y: auto;
+    background-color: white;
+    border: 1px solid #ddd;
+    border-top: none;
+    z-index: 1000;
+    display: none;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+.suggestion {
+    padding: 10px;
+    cursor: pointer;
+}
+
+.suggestion:hover {
+    background-color: #f5f5f5;
+}
+/* Reducción de altura en la barra de navegación */
+.navbar {
+    padding: 0.3rem 1rem; /* Reduce el padding vertical */
+    height: auto; /* Ajusta la altura según el contenido */
+}
+
+/* Ajustes para los enlaces de la barra de navegación */
+.navbar-light .navbar-nav .nav-link {
+    padding: 0.3rem 0.5rem; /* Reduce el padding interno de los enlaces */
+    color: #6c757d; /* Color gris claro */
+}
+
+.navbar-light .navbar-nav .nav-link:hover {
+    color: #495057; /* Gris más oscuro al pasar el cursor */
+}
+
+/* Ajuste para el botón de registro y otros botones en la barra */
+.nav-link.btn {
+    margin-left: 15px;
+    padding: 0.3rem 1rem; /* Reduce el padding del botón */
+    font-size: 14px; /* Tamaño de fuente más pequeño */
+}
+
+.navbar-toggler {
+    padding: 0.25rem 0.75rem; /* Ajusta el botón del toggler para ser más pequeño */
+}
+
+/* Ajustes de la barra de búsqueda */
+.container-search {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+}
+
+.search-row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.search-input input {
+    width: 250px; /* Ajusta el tamaño del campo de entrada */
+    padding: 5px;
+    border-radius: 4px;
+    border: 1px solid #ced4da;
+}
+
+.search-row button {
+    height: 35px; /* Ajuste de la altura del botón para ser consistente con el input */
+    padding: 0 15px;
+    font-size: 14px; /* Tamaño de fuente más pequeño */
+}
+
+.container-search {
+    flex-grow: 1; /* Permite que la barra de búsqueda ocupe el espacio disponible */
+}
+
+.search-row {
+    display: flex; /* Usar flexbox para alinear elementos */
+    justify-content: center; /* Centrar horizontalmente */
+    align-items: center; /* Alinear verticalmente si es necesario */
+}
+
+.search-input input {
+    margin-right: 10px; /* Espacio entre el input y el botón */
+}
+
