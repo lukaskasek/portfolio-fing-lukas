@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<!-- This is the main URDF file. It contais the root of the robot description-->
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro"  name="francesca">
+    <!-- Arguments to enable/disable features -->
+    <xacro:arg name="use_dummy_motors" default="false" />
+    <xacro:arg name="use_gazebo" default="false" />
+    <xacro:arg name="use_lidar" default="false" />
+    <xacro:arg name="use_camera" default="false" />
+
+    <!-- Include the xacro files that define the butia chassis -->    
+    <xacro:include filename="butia.xacro" />
+
+    <!-- Include the lidar module -->
+    <xacro:include filename="lidar.xacro" />
+    <xacro:francesca_lidar use_lidar="$(arg use_lidar)" use_gazebo="$(arg use_gazebo)"/>
+
+    <!-- Include the webcam module -->
+    <xacro:include filename="camera.xacro" />
+    <xacro:francesca_camera use_camera="$(arg use_camera)" use_gazebo="$(arg use_gazebo)"/>
+
+    <!-- Include the ros2_control subsystem  -->
+    <xacro:include filename="ros2_control.xacro" />
+    <xacro:francesca_ros2_control name="Francesca" use_dummy_motors="$(arg use_dummy_motors)" use_gazebo="$(arg use_gazebo)"/>
+</robot>

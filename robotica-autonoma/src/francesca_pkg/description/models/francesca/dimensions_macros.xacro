@@ -1,0 +1,38 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro" >
+
+    <!-- 
+    Following REP105, (length, width, height) -> (x, y, z)
+    The *_offset_* fields give a placement respect to  robot's chassis center (see butia.xacro) 
+    -->
+
+    <xacro:property name="chassis_length" value="0.28"/>
+    <xacro:property name="chassis_width" value="0.28"/>
+    <xacro:property name="chassis_height" value="0.04"/>
+    <xacro:property name="chassis_weight" value="0.1"/> <!--FIXME-->
+
+    <xacro:property name="lidar_height" value="0.05"/>
+    <xacro:property name="lidar_radius" value="0.05"/>
+    <xacro:property name="lidar_offset_length" value="0.1"/>
+    <xacro:property name="lidar_offset_width" value="0"/>
+    <xacro:property name="lidar_offset_height" value="0.025"/>
+
+    <xacro:property name="camera_length" value="0.01"/>
+    <xacro:property name="camera_width" value="0.04"/>
+    <xacro:property name="camera_height" value="0.02"/>
+    <xacro:property name="camera_offset_length" value="0.15"/>
+    <xacro:property name="camera_offset_width" value="0"/>
+    <xacro:property name="camera_offset_height" value="0.11"/>
+
+    <xacro:property name="wheel_width" value="0.01"/>
+    <xacro:property name="wheel_radius" value="0.04"/>
+    <!-- for the left wheel, right one considered symmetrical -->
+    <xacro:property name="wheel_offset_length" value="0.1"/> <!--FIXME-->
+    <xacro:property name="wheel_offset_width" value="0.14"/> <!--FIXME-->
+    <xacro:property name="wheel_offset_height" value="-0.02"/> <!--FIXME-->
+
+    <xacro:property name="caster_radius" value="0.02"/>
+    <!-- assumed centered, height will be computed to keep robot horizontal -->
+    <xacro:property name="caster_offset_length" value="-0.10"/> <!--FIXME-->
+
+</robot>

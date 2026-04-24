@@ -1,0 +1,67 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro">
+  <!-- 
+  Describe the ros2_control setup. 
+  There are two alternative configurations: against real hardware, or gazebo. 
+  -->
+
+  <xacro:macro name="francesca_ros2_control" params="name use_dummy_motors use_gazebo">
+
+    <!-- main ro2_control tag   -->
+    <ros2_control name="${name}" type="system">
+      <hardware>
+        <!-- virtual hardware when we are inside gaebo -->
+        <xacro:if value="${use_gazebo}">
+          <plugin>gz_ros2_control/GazeboSimSystem</plugin>
+        </xacro:if>
+        <!-- real hardware when we are inside gaebo -->
+        <xacro:unless value="${use_gazebo}">
+          <plugin>dynamixel_hardware/DynamixelHardware</plugin>
+          <!--<param name="usb_port">/dev/ttyUSB1 </param>-->
+          <param name="usb_port">/dev/serial/by-id/usb-FTDI_USB__-__Serial_Converter_FT4THVTM-if00-port0</param>
+          <!-- usb-Silicon_Labs_CP2102_USB_to_UART_Bridge_Controller_0001-if00-port0 -->
+         
+          <param name="baud_rate">57600</param>
+          <xacro:if value="${use_dummy_motors}">
+            <param name="use_dummy">true</param>
+          </xacro:if>
+        </xacro:unless>
+      </hardware>
+
+      <!-- describe the wheel names (used in francesca_controllers.yaml)  -->
+      <joint name="left_wheel_joint">
+        <param name="id">22</param>  <!-- left dynamixel motor id -->
+        <command_interface name="position" />
+        <command_interface name="velocity" />
+        <state_interface name="position" />
+        <state_interface name="velocity" />
+        <state_interface name="effort" />
+      </joint>
+      <joint name="right_wheel_joint">
+        <param name="id">21</param>  <!-- right dynamixel motor id -->
+        <command_interface name="position" />
+        <command_interface name="velocity" />
+        <state_interface name="position" />
+        <state_interface name="velocity" />
+        <state_interface name="effort" />
+      </joint>
+    </ros2_control>
+
+    <!-- when in gazebo, start the equivalent of ros2_control_node -->
+    <xacro:if value="$(arg use_gazebo)">
+      <gazebo>
+        <plugin filename="gz_ros2_control-system" name="gz_ros2_control::GazeboSimROS2ControlPlugin">
+          <parameters>$(find bringup)/config/francesca_controllers.yaml</parameters> <!-- load the ros2_control configuration  -->
+          <ros>
+            <!-- match topic names to the real ros2_control_node from francesca.launc.py -->
+            <remapping>/francesca_base_controller/cmd_vel:=/cmd_vel</remapping>
+            <remapping>/francesca_base_controller/odom:=/odom</remapping>
+            <remapping>/francesca_base_controller/transition_event:=/transition_event</remapping>
+          </ros>
+        </plugin>
+      </gazebo>
+    </xacro:if>
+
+  </xacro:macro>
+
+</robot>
