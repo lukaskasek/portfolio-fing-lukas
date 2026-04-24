@@ -1,0 +1,22 @@
+* Docker minimo (s/desktop)
+
+* todo lo de tfs, documentar
+
+* nodo para publicar estado de ceibalita 
+
+* nodo para publicar voltaje dynamixel?
+
+* mejorar urdf (repasar dimensiones, diseño, documentar)
+
+* mejorar mundo/s
+
+* depth camera / imu /  gps
+
+* nav
+
+* cambiar red (rmw_zenoh)
+
+* proyecto compilable sin gazebo
+
+* seguidor de linea o "autodock" con cámara
+
